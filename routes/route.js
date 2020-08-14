@@ -25,6 +25,7 @@ const {
 } = require("../controller/transaction");
 
 const { showUser, deleteUser } = require("../controller/user");
+const { register, login } = require("../controller/auth");
 
 router.get("/country", showCountry);
 router.get("/country/:id", showCountryDetail);
@@ -44,5 +45,8 @@ router.patch("/transaction/:id", updateTransaction);
 
 router.get("/user", showUser);
 router.delete("/user/:id", deleteUser);
+
+router.post("/register", register);
+router.post("/login", login);
 
 module.exports = router;

@@ -1,7 +1,3 @@
-const bycript = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const joi = require("@hapi/joi");
-
 const { User } = require("../models");
 
 exports.showUser = async (req, res) => {
