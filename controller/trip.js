@@ -114,19 +114,15 @@ exports.updateTrip = async (req, res) => {
 };
 
 exports.deleteTrip = async (req, res) => {
+  const { id } = req.params;
   try {
-    const { id } = req.params;
-
-    const dropTrip = await Trip.destroy(req.body, {
+    await Trip.destroy({
       where: {
         id,
       },
     });
     res.status(200).send({
-      message: "Trip has been Delete",
-      data: {
-        dropTrip,
-      },
+      message: `Trip id : ${id} has been successfully deleted.`,
     });
   } catch (error) {
     console.log(err);
