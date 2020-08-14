@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Transaction.belongsToMany(models.Trip, {
+      Transaction.belongsTo(models.Trip, {
         as: "trip",
-        through: "TransTrip",
+        // through: "TransTrip",
         foreignKey: "tripId",
       });
     }
