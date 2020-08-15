@@ -26,6 +26,7 @@ const {
 
 const { showUser, deleteUser } = require("../controller/user");
 const { register, login } = require("../controller/auth");
+const { authenticated } = require("../middleware/authControl");
 
 router.get("/country", showCountry);
 router.get("/country/:id", showCountryDetail);
@@ -40,8 +41,8 @@ router.delete("/trip/:id", deleteTrip);
 
 router.get("/transaction", showTransaction);
 router.get("/transaction/:id", showTransactionDetail);
-router.post("/transaction", createTransaction);
-router.patch("/transaction/:id", updateTransaction);
+router.post("/transaction", authenticated, createTransaction);
+router.patch("/transaction/:id", authenticated, updateTransaction);
 
 router.get("/user", showUser);
 router.delete("/user/:id", deleteUser);
